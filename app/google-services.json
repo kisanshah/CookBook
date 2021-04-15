@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "745836522888",
+    "project_id": "cookbook-ff968",
+    "storage_bucket": "cookbook-ff968.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745836522888:android:df113b2cfa2eceafe1de3d",
+        "android_client_info": {
+          "package_name": "com.kisan.cookbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745836522888-57rltq16qm0umib15i9s474u7ai2cvit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNoEpiQfOH8tv5qj_npNsxysZ4oJbz2Ms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745836522888-57rltq16qm0umib15i9s474u7ai2cvit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

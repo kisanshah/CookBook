@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">CookBook</string>
+    <string name="password">Password</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="sign_up"><u>Sign Up</u></string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="todo">todo</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_underlined"><u>Sign In</u></string>
+    <string name="skip"><u>Skip</u></string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="email">Email</string>
+    <string name="send_password_reset_email">Send Password Reset Email</string>
+    <string name="reset">Enter the email address you used when creating the account and click Send Password Reset Email. A message will be sent to that address containing a link to reset your password.</string>
+    <string name="name">Name</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="add">Add</string>
+    <string name="cart">Cart</string>
+    <string name="favorite">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_recipe_title">Enter Recipe Title</string>
+    <string name="enter_recipe_description">Enter Recipe Description</string>
+    <string name="recipe_ingredients">Recipe Ingredients</string>
+    <string name="add_direction">Add Direction</string>
+    <string name="save">Save</string>
+    <string name="select_cuisine">Select Cuisine</string>
+    <string name="not_selected">Not Selected</string>
+    <string name="upload_recipe">Upload Recipe</string>
+    <string name="add_note">Add Note (only visible to you)</string>
+
+    <string-array name="cuisine_list">
+        <item>African</item>
+        <item>American</item>
+        <item>British</item>
+        <item>Cajun</item>
+        <item>Caribbean</item>
+        <item>Chinese</item>
+        <item>Eastern European</item>
+        <item>European</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Greek</item>
+        <item>Indian</item>
+        <item>Irish</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Jewish</item>
+        <item>Korean</item>
+        <item>Latin American</item>
+        <item>Mediterranean</item>
+        <item>Mexican</item>
+        <item>Middle Eastern</item>
+        <item>Nordic</item>
+        <item>Southern</item>
+        <item>Spanish</item>
+        <item>Thai</item>
+        <item>Vietnamese</item>
+    </string-array>
+</resources>
