@@ -31,6 +31,9 @@
         <argument
             android:name="reciepe"
             app:argType="com.kisan.cookbook.model.Recipe" />
+        <argument
+            android:name="ref"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/search"

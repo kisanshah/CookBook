@@ -15,6 +15,7 @@ import androidx.core.view.children
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.kisan.cookbook.R
 import com.kisan.cookbook.databinding.ActivityAddRecipeBinding
 import com.kisan.cookbook.model.Recipe
@@ -129,9 +130,11 @@ class AddRecipeActivity : AppCompatActivity() {
         val privateNote: String = binding.recipePrivateNote.text.toString()
         val prepTime: Int = binding.prepTime.text.toString().toInt()
         val cookTime: Int = binding.cookTime.text.toString().toInt()
+        val authId = FirebaseAuth.getInstance().currentUser.uid
 
         val recipe = Recipe(
             title,
+            authId,
             description,
             ingredients,
             directions,

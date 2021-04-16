@@ -47,8 +47,10 @@ class SearchFragment : Fragment(), RecipeAdapter.RecipeInterface {
         super.onStop()
     }
 
-    override fun onClick(model: Recipe) {
-        val direction = SearchFragmentDirections.actionSearchToRecipeDetailFragment(model)
+
+    override fun onClick(model: Recipe, ref: String) {
+        val direction =
+            SearchFragmentDirections.actionSearchToRecipeDetailFragment(reciepe = model, ref = ref)
         findNavController().navigate(direction)
     }
 }

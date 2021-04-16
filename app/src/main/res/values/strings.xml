@@ -29,6 +29,10 @@
     <string name="not_selected">Not Selected</string>
     <string name="upload_recipe">Upload Recipe</string>
     <string name="add_note">Add Note (only visible to you)</string>
+    <string name="private_note">Private Note (only visible to you)</string>
+    <string name="directions">Directions :</string>
+    <string name="comments">Comments</string>
+    <string name="add_comment">Add Comment</string>
 
     <string-array name="cuisine_list">
         <item>African</item>

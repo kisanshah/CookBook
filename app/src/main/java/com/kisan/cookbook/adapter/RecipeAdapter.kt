@@ -12,7 +12,7 @@ import com.kisan.cookbook.model.Recipe
 
 class RecipeAdapter(
     options: FirebaseRecyclerOptions<Recipe>,
-    val recipeInterface: RecipeInterface
+    private val recipeInterface: RecipeInterface
 ) :
     FirebaseRecyclerAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(
         options
@@ -31,7 +31,7 @@ class RecipeAdapter(
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int, model: Recipe) {
         holder.viewBinding.apply {
-            cardView.setOnClickListener { recipeInterface.onClick(model) }
+            container.setOnClickListener { recipeInterface.onClick(model, getRef(position).key!!) }
             val ref = FirebaseStorage.getInstance().reference.child(model.imgUrl)
             GlideApp.with(this.root).load(ref).centerCrop().into(imageView)
             date.text = model.date
@@ -42,7 +42,7 @@ class RecipeAdapter(
     }
 
     interface RecipeInterface {
-        fun onClick(model: Recipe)
+        fun onClick(model: Recipe, ref: String)
     }
 
 }
