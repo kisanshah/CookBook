@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.kisan.cookbook.databinding.ActivitySignInBinding
 import com.kisan.cookbook.utils.Status
 import com.kisan.cookbook.viewmodel.AuthViewModel
@@ -35,6 +36,36 @@ class SignInActivity : AppCompatActivity() {
             }
             forgetPass.setOnClickListener {
                 startActivity(Intent(this@SignInActivity, ForgotPasswordActivity::class.java))
+            }
+            signIn.setOnClickListener {
+                FirebaseAuth.getInstance()
+                    .signInWithEmailAndPassword(email.text.toString(), password.text.toString())
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+
+                            if (!FirebaseAuth.getInstance().currentUser!!.isEmailVerified) {
+                                Toast.makeText(
+                                    this@SignInActivity,
+                                    "Verify your Email",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            else{
+                                startActivity(
+                                    Intent(
+                                        this@SignInActivity,
+                                        MainActivity::class.java
+                                    )
+                                )
+                            }
+                        } else {
+                            Toast.makeText(
+                                this@SignInActivity,
+                                "Failed to Sign In",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
             }
         }
 

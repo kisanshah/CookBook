@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
@@ -17,8 +16,6 @@ import com.kisan.cookbook.model.Recipe
 
 class SearchFragment : Fragment(), RecipeAdapter.RecipeInterface {
 
-    private lateinit var binding: FragmentSearchBinding
-    lateinit var adapter: RecipeAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,11 +26,12 @@ class SearchFragment : Fragment(), RecipeAdapter.RecipeInterface {
             .setQuery(query, Recipe::class.java)
             .build()
         adapter = RecipeAdapter(options, this)
-        binding.apply {
-            recyclerView.layoutManager = LinearLayoutManager(context)
-            recyclerView.adapter = adapter
+//        binding.apply {
+//            recyclerView.layoutManager = LinearLayoutManager(context)
+//            recyclerView.adapter = adapter
+//
+//        }
 
-        }
         return binding.root
     }
 
@@ -41,6 +39,8 @@ class SearchFragment : Fragment(), RecipeAdapter.RecipeInterface {
         adapter.startListening()
         super.onStart()
     }
+    private lateinit var binding: FragmentSearchBinding
+    lateinit var adapter: RecipeAdapter
 
     override fun onStop() {
         adapter.stopListening()

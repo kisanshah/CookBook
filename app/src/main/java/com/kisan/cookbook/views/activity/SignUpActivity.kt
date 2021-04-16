@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
 import com.kisan.cookbook.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -26,7 +28,46 @@ class SignUpActivity : AppCompatActivity() {
                 val password1: String = passLayout.editText?.text.toString()
                 val password2: String = pass2Layout.editText?.text.toString()
                 if (validate(emailStr, password1, password2)) {
-                    Toast.makeText(applicationContext, "Validated", Toast.LENGTH_SHORT).show()
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailStr, password1)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                Toast.makeText(
+                                    this@SignUpActivity,
+                                    "Registration Successful",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                FirebaseAuth.getInstance().currentUser!!.sendEmailVerification().addOnCompleteListener(
+                                    OnCompleteListener<Void?> { task ->
+                                        if (task.isSuccessful) {
+                                            Toast.makeText(
+                                                application,
+                                                "Verification email has been sent!",
+                                                Toast.LENGTH_LONG
+                                            ).show()
+                                            startActivity(
+                                                Intent(
+                                                    this@SignUpActivity,
+                                                    SignInActivity::class.java
+                                                )
+                                            )
+                                            finish()
+                                        } else {
+                                            Toast.makeText(
+                                                application,
+                                                task.exception!!.localizedMessage,
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    })
+
+                            } else {
+                                Toast.makeText(
+                                    this@SignUpActivity,
+                                    "Failed to Register",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                 }
             }
         }

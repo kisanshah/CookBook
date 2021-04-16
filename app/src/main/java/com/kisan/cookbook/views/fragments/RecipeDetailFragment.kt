@@ -114,7 +114,7 @@ class RecipeDetailFragment : Fragment() {
                 privateNoteInput.setText(recipe.privateNote)
             }
             val s =
-                "• Prep : ${recipe.cookTime}mins\n• Cook : ${recipe.cookTime}mins\n• Total : ${recipe.cookTime + recipe.prepTime}mins"
+                "• Prep : ${recipe.prepTime}mins\n• Cook : ${recipe.cookTime}mins\n• Total : ${recipe.cookTime + recipe.prepTime}mins"
             timeRequired.text = s
             GlideApp.with(requireContext())
                 .load(ref)
@@ -129,6 +129,7 @@ class RecipeDetailFragment : Fragment() {
             recipe.ingredients.split(",").toList().forEach {
                 addChip(it.trim())
             }
+
         }
     }
 
